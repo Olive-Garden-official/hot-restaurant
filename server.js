@@ -54,6 +54,14 @@ app.post("/api/tables", function (req, res) {
 
 });
 
+app.post("/api/waitlist", function (req, res) {
+
+    var newWaitList = req.body;
+    tables.push(newWaitList)
+    res.json(waitList);
+
+});
+
 //opens the port
 app.listen(PORT, function () {
     console.log("App listening on PORT " + PORT);
