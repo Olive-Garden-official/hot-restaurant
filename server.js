@@ -37,17 +37,24 @@ var waitList = [
 ]
 
 //displays the data in the tables array 
-app.get("/api/tables", function(req, res) {
+app.get("/api/tables", function (req, res) {
     return res.json(tables);
-  });
+});
 
 //displays the data in the waitlist array
-app.get("/api/waitlist", function(req, res) {
+app.get("/api/waitlist", function (req, res) {
     return res.json(waitList);
-  });
+});
+
+app.post("/api/tables", function (req, res) {
+
+    var newTable = req.body;
+    tables.push(newTable)
+    res.json(tables);
+
+});
 
 //opens the port
-app.listen(PORT, function() {
+app.listen(PORT, function () {
     console.log("App listening on PORT " + PORT);
-  });
-  
+});
