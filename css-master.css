@@ -13,3 +13,21 @@
     margin-top:20px;
     border-radius: 10px;
 }
+.currentreserve{
+    width:100%;
+}
+.currentreservetext{
+    padding:5px;
+    border:1px solid grey;
+    border-radius: 5px;
+}
+.waitlisttext{
+    padding:5px;
+    border:1px solid grey;
+    border-radius: 5px;
+}
+.namecontainer{
+    border:1px solid grey;
+    height:20px;
+    border-radius: 5px;
+}
