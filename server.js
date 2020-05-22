@@ -23,6 +23,24 @@ var tables = [
         phonenumber: "801-555-5554",
         email: "sally@sallymail.com",
         uniqueid: "Sally02"
+    },
+    {
+        name: "Bob",
+        phonenumber: "801-555-5555",
+        email: "bob@bobmail.com",
+        uniqueid: "Bob01"
+    },
+    {
+        name: "Bob",
+        phonenumber: "801-555-5555",
+        email: "bob@bobmail.com",
+        uniqueid: "Bob01"
+    },
+    {
+        name: "Bob",
+        phonenumber: "801-555-5555",
+        email: "bob@bobmail.com",
+        uniqueid: "Bob01"
     }
 ]
 
@@ -36,6 +54,12 @@ var waitList = [
     }
 ]
 
+if (tables.length === 5) {
+    console.log(tables);
+} else {
+    console.log(waitList);
+}
+
 //displays the data in the tables array 
 app.get("/api/tables", function (req, res) {
     return res.json(tables);
@@ -46,13 +70,21 @@ app.get("/api/waitlist", function (req, res) {
     return res.json(waitList);
 });
 
-app.post("/api/tables", function (req, res) {
+if (tables.length >= 5) {
+    app.post("/api/waitlist", function (req, res) {
+        var newTable = req.body;
+        waitList.push(newTable);
+        res.json(tables);
+    });
+} 
 
-    var newTable = req.body;
-    tables.push(newTable)
-    res.json(tables);
+    app.post("/api/tables", function (req, res) {
+        var newTable = req.body;
+        tables.push(newTable);
+        res.json(waitList);
+    });
 
-});
+
 
 //opens the port
 app.listen(PORT, function () {
